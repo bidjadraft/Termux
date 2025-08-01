@@ -1,29 +1,20 @@
+## Installing the Necessary Tools to Run the Script in Termux
 
 ```bash
 pkg update
 ```
----
-
 ```bash
 pkg upgrade
 ```
----
-
 ```bash
 pkg install python
 ```
----
-
 ```bash
 pkg install ffmpeg
 ```
----
-
 ```bash
 pip install requests
 ```
----
-
 ```python
 import os
 import subprocess
