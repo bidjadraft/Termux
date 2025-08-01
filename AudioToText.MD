@@ -38,6 +38,9 @@ pkg install ffmpeg
 ```bash
 pip install requests
 ```
+```bash
+termux-setup-storage
+```
 
 3. **create new file:**
  `nano filename.py`
