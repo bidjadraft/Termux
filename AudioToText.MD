@@ -1,18 +1,27 @@
 
 ```bash
-pkg update```
+pkg update
+```
 ---
+
 ```bash
-pkg upgrade```
+pkg upgrade
+```
 ---
+
 ```bash
-pkg install python```
+pkg install python
+```
 ---
+
 ```bash
-pkg install ffmpeg```
+pkg install ffmpeg
+```
 ---
+
 ```bash
-pip install requests```
+pip install requests
+```
 ---
 
 ```python
