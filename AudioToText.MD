@@ -7,14 +7,16 @@ This script is written in Python and automates the process of converting audio o
 ## Features
 
 - Supports common audio formats:  
-  `WAV, MP3, M4A, FLAC, OPUS, OGG
+  `WAV, MP3, M4A, FLAC, OPUS, OGG`
 
 - Supports popular video formats:  
   `MP4, MOV, MKV, AVI, FLV, WM`
 
 - Supports long clips of 2 hours or more
 
-- Simple to use without typing commands
+- Supports most languages including English, Arabic, French, and others
+
+- Simple to use without typing codes
 
 ### Screenshots 
 
