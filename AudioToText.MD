@@ -1,10 +1,10 @@
 
 # Audio and Video Transcription Using Google Gemini API in Termux for Free
 
-## Overview
+# Overview
 This script is written in Python and automates the process of converting audio or video files into written text using the Google Gemini API. It is designed to run in the Termux environment or any similar Linux system, handling large files efficiently by splitting and compressing them when needed, then uploading in parts and combining the resulting texts into a single file.
 
-## Features
+# Features
 
 - Supports common audio formats:  
   `WAV, MP3, M4A, FLAC, OPUS, OGG`
@@ -18,7 +18,7 @@ This script is written in Python and automates the process of converting audio o
 
 - Simple to use without typing codes
 
-### Screenshots 
+# Screenshots 
 
 ![Screenshot 1](https://i.imgur.com/b5OQZL5.jpeg)
 
@@ -593,17 +593,15 @@ if __name__ == "__main__":
 
 ---
 
+# How This Code Works
+
+
 | File Size       | Duration         | Action                                   | Speed               |
 | --------------- | ---------------- | ---------------------------------------- | ------------------- |
 | Less than 20 MB | Less than 30 min | Upload the file directly                 | Fastest             |
 | Less than 20 MB | More than 30 min | Split the file, then upload              | Fastest             |
 | More than 20 MB | Less than 30 min | Compress the file, then upload           | Good                |
 | More than 20 MB | More than 30 min | Compress the file, then split and upload | Best for long clips |
-
-
-
-
-# How This Code Works
 
 1. **Setup and Constants**  
    - Creates a temporary directory for intermediate files.  
