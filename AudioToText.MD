@@ -25,9 +25,21 @@ This script is written in Python and automates the process of converting audio o
 ---
 # Requirements
 
-- 
-- FFMPEG installed
-- Internet connection
+```bash
+pkg update
+```
+```bash
+pkg upgrade
+```
+```bash
+pkg install python
+```
+```bash
+pkg install ffmpeg
+```
+```bash
+pip install requests
+```
 
 
 
