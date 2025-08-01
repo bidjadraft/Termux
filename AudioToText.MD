@@ -608,47 +608,76 @@ if __name__ == "__main__":
 | More than 20 MB | Less than 30 min | Compress the file, then upload           | Good                |
 | More than 20 MB | More than 30 min | Compress the file, then split and upload | Best for long clips |
 
-1. **Setup and Constants**  
-   - Creates a temporary directory for intermediate files.  
-   - Defines supported audio and video file extensions and sets constants like part duration (30 minutes).
+# How to Use This Script
 
-2. **Internet and API Key Handling**  
-   - Checks for internet connectivity.  
-   - Reads Gemini API key from a local file or prompts user for it.  
-   - Tests the API key validity by making a test request to Gemini API.
+1. **Start the script**  
+   Run the Python script. It will first check if you have a saved Gemini API key.
 
-3. **File Type and Duration Processing**  
-   - Supports extraction of audio from supported video files.  
-   - Determines the duration of the audio file using ffprobe.
+2. **Enter or confirm Gemini API key**  
+   - If you don’t have the key saved, the script will ask:  
+     `Gemini API:`  
+     Enter your Gemini API key here.  
+   - The script tests the key automatically. If invalid, it asks again.  
+   - If no internet, it will ask if you want to retry or exit.
 
-4. **Compression Logic**  
-   - If file size is large (>20MB per part), offers to compress the audio using ffmpeg with low bitrate and mono channel.  
-   - Shows compression progress via a console progress bar.
+3. **Input the audio/video file path**  
+   When prompted:  
+   `Path:`  
+   Enter the path to your audio or video file.  
+   - If the file does not exist or format is unsupported, it will show an error and ask again.
 
-5. **Splitting Audio**  
-   - Splits long audio files (>30 minutes) into 30-minute parts using ffmpeg.  
-   - Displays a spinner during the splitting process.
+4. **For video files:**  
+   - The script extracts the audio automatically and processes that.
 
-6. **Uploading Files**  
-   - Starts a resumable upload session with the Gemini API.  
-   - Uploads file bytes with progress spinner and error handling.  
-   - Supports retry on failures or network issues.
+5. **Display file info and estimated parts**  
+   The script shows:  
+   - Total time and size of the file.  
+   - Number of parts (each around 30 minutes).  
+   - Estimated size per part.
 
-7. **Transcription Request**  
-   - Sends the uploaded file URI along with a prompt to Gemini API's transcription endpoint.  
-   - Shows spinner while waiting for API response.  
-   - Supports retrying if transcription fails or parsing errors occur.
+6. **Decide on compression if parts are large (>20MB)**  
+   If parts are large, it asks:  
+   `Compress before splitting? (Y/N):`  
+   - `Y`: It compresses the audio with lower bitrate and mono channel and shows progress bar.  
+   - `N`: You can enter a new file path or continue with current file.
 
-8. **Combining and Saving Output**  
-   - Combines transcription results from parts into one final transcript text.  
-   - Saves the transcript to a text file in the original file's directory.  
-   - Prints the relative path of the saved transcript file.
+7. **If the audio is longer than 30 minutes:**  
+   - The script splits the audio into 30-minute parts, showing a spinner for progress.  
+   - For each part:  
+     - Starts an upload session.  
+     - Uploads the audio part with a spinner for upload status.  
+     - Transcribes it using the Gemini API, showing a spinner for transcription.  
+     - If any step fails (upload or transcription), it asks if you want to retry.  
+   - After all parts are processed, it combines all transcriptions into one text file.
 
-9. **Cleanup**  
-   - Deletes temporary parts, compressed files, and extracted audio after successful transcription.
+8. **If the audio is shorter than 30 minutes:**  
+   - If bigger than 20MB, it asks:  
+     `Compress? (Y/N):`  
+     - `Y`: Compress and update file info.  
+     - `N`: Proceed without compression.  
+   - Uploads the file and transcribes it like in the multi-part process.
 
-10. **User Interaction**  
-    - Provides prompts for retrying operations if errors occur.  
-    - Allows users to re-enter file paths or decide on compression steps.
+9. **Saving the transcript**  
+   - The final transcript is saved in the same directory as the original file, with the suffix `_transcript.txt`.  
+   - The script prints the saved file relative path.
 
-Overall, the script converts audio or video files into accurate text transcripts by leveraging Gemini's generative language API, handling large files by splitting, compressing when needed, and managing network reliability gracefully.
+10. **Cleanup**  
+    - Temporary files (split parts, compressed files, extracted audio) are deleted automatically after success.
+
+---
+
+### Summary of Main Prompts and Inputs
+
+| Prompt                             | What to Do                               |
+|----------------------------------|-----------------------------------------|
+| `Gemini API:`                    | Enter your Gemini API key                |
+| `Path:`                         | Enter the full file path of your audio or video file |
+| `Compress before splitting? (Y/N):` | Type `Y` to compress or `N` to skip    |
+| `Retry upload session start? (Y/N):` | Type `Y` to retry upload or `N` to cancel |
+| `Retry upload (Y/N)?`            | Type `Y` to retry upload or `N` to cancel |
+| `Retry transcription (Y/N)?`     | Type `Y` to retry transcription or `N` to cancel |
+| `Compress? (Y/N):`               | Type `Y` to compress or `N` to proceed without compression |
+
+---
+
+Using this process, you can convert your audio or video files into text transcripts by following the interactive prompts step-by-step.
