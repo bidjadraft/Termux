@@ -38,6 +38,13 @@ pkg install ffmpeg
 ```bash
 pip install requests
 ```
+
+**copy the code below and paste it into the file**
+
+**to save the file:**
+
+Press `Ctrl + X`, then `Y` to confirm saving, and finally `Enter` to confirm the filename.
+
 ```python
 import os
 import subprocess
