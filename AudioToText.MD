@@ -1,3 +1,13 @@
+| File Size        | Duration        | Action                                   | Speed    |
+|------------------|-----------------|-----------------------------------------|----------|
+| Less than 20 MB  | Less than 30 min| Upload the file directly                 | Fastest  |
+| Less than 20 MB  | More than 30 min| Split the file, then upload              | Fastest  |
+| More than 20 MB  | Less than 30 min| Compress the file, then upload           | Good     |
+| More than 20 MB  | More than 30 min| Compress the file, then split and upload| Moderate |
+
+
+
+
 ## Installing the Necessary Tools to Run the Script in Termux
 
 ```bash
