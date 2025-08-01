@@ -40,8 +40,7 @@ pip install requests
 ```
 
 3. **create new file:**
- ```bash
-nano filename.py```
+ `nano filename.py`
 
 4. **copy the code below and paste it into the file**
 
