@@ -28,7 +28,7 @@ This script is written in Python and automates the process of converting audio o
 # Requirements
 First, you need to obtain a Gemini API Key from the [Google AI Studio](https://aistudio.google.com/app/apikey) website. If you don't know how to get it or face any issues, watch [this video](https://youtu.be/SMTLu2AT5tQ) for guidance.
 
-**You need to install this on termux:**
+**Now you install this on [Termux](https://termux.dev/en/)**
 ```bash
 pkg install python
 ```
@@ -38,7 +38,7 @@ pkg install ffmpeg
 ```bash
 pip install requests
 ```
-ذ
+
 **create new file:** `nano filename.py`
 **copy the code below and paste it into the file**
 
