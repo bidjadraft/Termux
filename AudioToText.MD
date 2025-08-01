@@ -3,23 +3,22 @@
 ​## Overview
 This script is written in Python and automates the process of converting audio or video files into written text using the Google Gemini API. It is designed to run in the Termux environment or any similar Linux system, handling large files efficiently by splitting and compressing them when needed, then uploading in parts and combining the resulting texts into a single file.
 
-​￼## Features
+​## Features
 
-​￼- Supports common audio formats:  
+​- Supports common audio formats:  
   `WAV, MP3, M4A, FLAC, OPUS, OGG
 
-​￼- Supports popular video formats:  
+​- Supports popular video formats:  
   `MP4, MOV, MKV, AVI, FLV, WM`
 
 - Supports long clips of 2 hours or more
 
 - Simple to use without typing commands
 
-​￼### Screenshots 
+​### Screenshots 
 
 ![Screenshot 1](https://i.imgur.com/b5OQZL5.jpeg)
-￼
 
 ![Screenshot 2](https://i.imgur.com/DixjIsR.jpeg)
-￼
+
 
