@@ -14,7 +14,7 @@ This script is written in Python and automates the process of converting audio o
 
 - Supports long clips of 2 hours or more
 
-- Supports most languages including English, Arabic, French, and others
+- Supports most languages including `English, Arabic, French,` and others
 
 - Simple to use without typing codes
 
@@ -40,7 +40,7 @@ pip install requests
 ```
 
 3. **create new file:**
-`nano filename.py`
+ `nano filename.py`
 4. **copy the code below and paste it into the file**
 
 5. **to save the file:**
