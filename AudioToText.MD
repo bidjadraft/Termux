@@ -38,7 +38,8 @@ pkg install ffmpeg
 ```bash
 pip install requests
 ```
-
+ذ
+**create new file:** `nano filename.py`
 **copy the code below and paste it into the file**
 
 **to save the file:**
