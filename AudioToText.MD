@@ -58,6 +58,7 @@ import sys
 import re
 import threading
 import time
+import random
 
 API_KEY_FILE = "gemini_api_key.txt"
 TEMP_DIR = "temp"
@@ -257,7 +258,11 @@ def send_request_to_gemini(file_uri, mime_type, prompt, api_key, part_idx=None, 
     }
     headers = {"Content-Type": "application/json"}
     operation_text = f"Transcribing {part_idx}/{total_parts}..." if part_idx and total_parts else "Transcribing..."
-    while True:
+
+    max_retries = 10
+    base_delay = 1  # بالثواني
+
+    for attempt in range(1, max_retries + 1):
         done_flag = [False]
         spinner_thread = threading.Thread(target=spinner_task, args=(operation_text, done_flag))
         spinner_thread.start()
@@ -274,19 +279,10 @@ def send_request_to_gemini(file_uri, mime_type, prompt, api_key, part_idx=None, 
                 try:
                     return resp.json()["candidates"][0]["content"]["parts"][0]["text"]
                 except Exception:
-                    print(f"\nError parsing transcription response for part {part_idx}.")
-                    retry = input("Retry transcription (Y/N)? ").strip().lower()
-                    if retry == "y":
-                        continue
-                    else:
-                        return None
+                    print(f"\nError parsing transcription response for part {part_idx}. Retrying...")
             else:
-                print(f"\nAPI error (part {part_idx}): {resp.status_code}")
-                retry = input("Retry transcription (Y/N)? ").strip().lower()
-                if retry == "y":
-                    continue
-                else:
-                    return None
+                print(f"\nAPI error (part {part_idx}): {resp.status_code}. Retrying...")
+
         except Exception:
             done_flag[0] = True
             spinner_thread.join()
@@ -294,12 +290,15 @@ def send_request_to_gemini(file_uri, mime_type, prompt, api_key, part_idx=None, 
                 wait_for_network("waiting for Network")
                 continue
             else:
-                print("\nAPI request failed due to network error")
-                retry = input("Retry transcription (Y/N)? ").strip().lower()
-                if retry == "y":
-                    continue
-                else:
-                    return None
+                print("\nAPI request failed due to network error. Retrying...")
+
+        delay = base_delay * (2 ** (attempt - 1)) + random.uniform(0, 0.5)
+        delay = min(delay, 60)  # حد أقصى للانتظار 60 ثانية
+        print(f"Waiting for {delay:.1f} seconds before retry #{attempt}...")
+        time.sleep(delay)
+
+    print(f"\nFailed transcription for part {part_idx} after {max_retries} retries.")
+    return None
 
 def compress_with_progress(input_path, duration_sec):
     base, ext = os.path.splitext(input_path)
@@ -524,19 +523,16 @@ def main():
                 print(f"Failed to save transcript file: {e}")
                 return
             print(f"saved: {relative_output_path(output_file)}")
-            # حذف ملفات الأجزاء
             for fpath in parts:
                 try:
                     os.remove(fpath)
                 except Exception:
                     pass
-            # حذف ملف الضغط إذا وُجد
             if compressed_file is not None:
                 try:
                     os.remove(compressed_file)
                 except Exception:
                     pass
-            # حذف ملف الصوت المستخرج مؤقتاً من الفيديو
             temp_audio_path = os.path.join(TEMP_DIR, "extracted_audio.m4a")
             if os.path.exists(temp_audio_path):
                 try:
@@ -592,6 +588,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 ```
 
@@ -688,4 +685,3 @@ Using this process, you can convert your audio or video files into text transcri
 If you found this project helpful, consider supporting me:
 
 [![Donate](https://i.imgur.com/LjjhKAO.png)](https://ko-fi.com/bidjadraft)
-
