@@ -684,7 +684,9 @@ if __name__ == "__main__":
 
 ---
 
-Using this process, you can convert your audio or video files into text transcripts by following the interactive prompts step-by-step.
+This project is completely free and open to everyone.
+You are free to use, modify, and distribute the code.
+Please respect the author's rights by not using the code for commercial purposes without prior permission.
 
 If you found this project helpful, consider supporting me:
 
