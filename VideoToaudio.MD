@@ -30,9 +30,7 @@ This script is written in Python and automates the process of converting audio o
 
 ---
 # Requirements
-1. First, you need to obtain a Gemini API Key from the [Google AI Studio](https://aistudio.google.com/app/apikey) website. If you don't know how to get it or face any issues, watch [this video](https://youtu.be/SMTLu2AT5tQ) for guidance.
-
-2. **Now you need to install this on [Termux](https://termux.dev/en/):**
+1. create new file
 ```bash
 nano FILENAME.sh
 ```
