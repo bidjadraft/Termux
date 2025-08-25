@@ -27,7 +27,7 @@ The script's main function is to extract the audio track from video files using 
 
 ---
 # Requirements
-You will only need the ffmpeg tool, but all of this will happen automatically upon running the code. Therefore, follow these steps:
+You will only need the `FFMPEG` tool, but all of this will happen automatically upon running the code. Therefore, follow these steps:
 
 1. create new file
 ```bash
