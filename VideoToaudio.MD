@@ -169,6 +169,7 @@ chmod +x FILENAME.sh
 extraction process at a fast speed.
 4. The extracted file will be saved in the same folder as the video with a different name.
 
+---
 
 If you found this project helpful, consider supporting me:
 
