@@ -1,5 +1,5 @@
 
-# Audio and Video Transcription Using Google Gemini API in Termux for Free
+# Extract Audio from Video with Termux and FFMPEG
 
 [![watch video on youtube](https://img.youtube.com/vi/rP7Nzy-No3s/hqdefault.jpg)](https://www.youtube.com/watch?v=rP7Nzy-No3s)
 > **Note**  
