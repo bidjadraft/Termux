@@ -114,23 +114,8 @@ Press `Ctrl + X`, then `Y` to confirm saving, and finally `Enter` to confirm the
 
 ---
 
-### Summary of Main Prompts and Inputs
 
-| Prompt                             | What to Do                               |
-|----------------------------------|-----------------------------------------|
-| `Gemini API:`                    | Enter your Gemini API key                |
-| `Path:`                         | Enter the full file path of your audio or video file |
-| `Compress before splitting? (Y/N):` | Type `Y` to compress or `N` to skip    |
-| `Retry upload session start? (Y/N):` | Type `Y` to retry upload or `N` to cancel |
-| `Retry upload (Y/N)?`            | Type `Y` to retry upload or `N` to cancel |
-| `Retry transcription (Y/N)?`     | Type `Y` to retry transcription or `N` to cancel |
-| `Compress? (Y/N):`               | Type `Y` to compress or `N` to proceed without compression |
 
----
-
-This project is completely free and open to everyone.
-You are free to use, modify, and distribute the code.
-Please respect the author's rights by not using the code for commercial purposes without prior permission.
 
 If you found this project helpful, consider supporting me:
 
