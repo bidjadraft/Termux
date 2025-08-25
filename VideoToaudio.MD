@@ -84,13 +84,13 @@ while true; do
   ext="${video_path##*.}"
   ext_lower=$(echo "$ext" | tr '[:upper:]' '[:lower:]')
   case $ext_lower in
-    mp4|mov|avi|mkv|flv|webm)
-      break
-      ;;
-    *)
-      echo "support only: mp4,mov,avi,mkv,flv,webm"
-      ;;
-  esac
+  mp4|mov|mkv)
+    break
+    ;;
+  *)
+    echo "support only: mp4, mov, mkv"
+    ;;
+esac
 done
 
 filename=$(basename -- "$video_path")
