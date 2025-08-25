@@ -34,6 +34,7 @@ This script is written in Python and automates the process of converting audio o
 ```bash
 nano FILENAME.sh
 ```
+2. past this code into file
 ```bash
 #!/bin/sh
 
