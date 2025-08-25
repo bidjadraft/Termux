@@ -149,7 +149,7 @@ done
 ```
 ---
 3. save the file by click:
-**cntrl + x + y + enter**
+｀cntrl｀ + ｀x｀ + ｀y｀ + ｀enter｀
 ---
 4. Giving file permissions
 ```bash
