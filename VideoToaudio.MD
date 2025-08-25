@@ -13,14 +13,12 @@ The script's main function is to extract the audio track from video files using 
 - Supports common Video formats:  
   `MP4, MOV, MKV`
 
-- Supports popular video formats:  
-  `MP4, MOV, MKV, AVI, FLV, WM`
+- Handles very long video files efficiently.
 
-- Supports long clips of 2 hours or more
+- Performs fast, lossless audio extraction without re-encoding.
 
-- Supports most languages including `English, Arabic, French,` and others
-
-- Simple to use without typing codes
+- User-friendly with no coding required; uses simple interactive prompts.
+---
 
 # Screenshots 
 
