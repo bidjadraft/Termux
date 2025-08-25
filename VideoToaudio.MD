@@ -164,7 +164,7 @@ chmod +x FILENAME.sh
 
 
 # How to Use This Script
-1. Upon running the script, you will be prompted to download the ffmpeg tool; choose "y" and wait for the installation to complete.
+1. Upon running the script, you will be prompted to download the `FFMPEG` tool, choose "y" and wait for the installation to complete.
 2. Next, you will be prompted to enter the video file path.
 3. After entering the correct path, the script will begin the audio
 extraction process at a fast speed.
