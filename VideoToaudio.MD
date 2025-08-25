@@ -147,24 +147,19 @@ while true; do
   esac
 done
 ```
-
-```bash
-cntrl + x + y + enter
-```
+---
+3. save the file by click:
+**cntrl + x + y + enter**
+---
+4. Giving file permissions
 ```bash
 chmod +x FILENAME.sh
 ```
+---
+5. Running the file
 ```bash
 ./FILENAME.sh
 ```
-
-3. **create new file:**
- `nano filename.py`
-
-4. **copy the code below and paste it into the file**
-
-5. **to save the file:**
-Press `Ctrl + X`, then `Y` to confirm saving, and finally `Enter` to confirm the filename.
 
 
 # How to Use This Script
