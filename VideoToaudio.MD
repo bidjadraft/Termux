@@ -18,7 +18,6 @@ The script's main function is to extract the audio track from video files using 
 - Performs fast, lossless audio extraction without re-encoding.
 
 - User-friendly with no coding required; uses simple interactive prompts.
----
 
 # Screenshots 
 
