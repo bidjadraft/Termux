@@ -34,16 +34,128 @@ This script is written in Python and automates the process of converting audio o
 
 2. **Now you need to install this on [Termux](https://termux.dev/en/):**
 ```bash
-pkg install python
+nano FILENAME.sh
 ```
 ```bash
-pkg install ffmpeg
+#!/bin/sh
+
+spinner() {
+  while :
+  do
+    for c in '-' '\' '|' '/'
+    do
+      printf "\r%s %s" "$1" "$c"
+      sleep 0.1
+    done
+  done
+}
+
+if ! command -v ffmpeg > /dev/null 2>&1; then
+  while true; do
+    echo -n "ffmpeg not found. install now (Y/N)? "
+    read answer
+    case $answer in
+      [Yy]* )
+        spinner "download running" &
+        spinner_pid=$!
+        yes | pkg install ffmpeg > /dev/null 2>&1
+        kill $spinner_pid
+        wait $spinner_pid 2>/dev/null
+        echo -e "\rDownload completed.            "
+        break
+        ;;
+      [Nn]* )
+        echo "You can't without ffmpeg."
+        exit 1
+        ;;
+      * )
+        echo ""
+        ;;
+    esac
+  done
+fi
+
+while true; do
+  echo -n "path: "
+  read video_path
+  if [ -z "$video_path" ]; then
+    continue
+  fi
+  ext="${video_path##*.}"
+  ext_lower=$(echo "$ext" | tr '[:upper:]' '[:lower:]')
+  case $ext_lower in
+    mp4|mov|avi|mkv|flv|webm)
+      break
+      ;;
+    *)
+      echo "support only: mp4,mov,avi,mkv,flv,webm"
+      ;;
+  esac
+done
+
+filename=$(basename -- "$video_path")
+filename="${filename%.*}"
+folder_path=$(dirname "$video_path")
+audio_ext="m4a"
+
+output_audio="$folder_path/${filename}_audio.$audio_ext"
+count=1
+while [ -f "$output_audio" ]; do
+  output_audio="$folder_path/${filename}_audio($count).$audio_ext"
+  count=$((count + 1))
+done
+
+while true; do
+  spinner "extracting audio is running" &
+  spinner_pid=$!
+
+  ffmpeg -i "$video_path" -vn -acodec copy "$output_audio" > /dev/null 2>&1
+  ret=$?
+
+  kill $spinner_pid
+  wait $spinner_pid 2>/dev/null
+  if [ $ret -eq 0 ]; then
+    printf "\rsaved: %s\n" "$output_audio"
+  else
+    echo "Error extracting audio."
+  fi
+
+  # إعادة الطلب للمسار لتنفيذ عملية جديدة
+  echo -n "path: "
+  read video_path
+  if [ -z "$video_path" ]; then
+    break
+  fi
+  ext="${video_path##*.}"
+  ext_lower=$(echo "$ext" | tr '[:upper:]' '[:lower:]')
+  case $ext_lower in
+    mp4|mov|avi|mkv|flv|webm)
+      filename=$(basename -- "$video_path")
+      filename="${filename%.*}"
+      folder_path=$(dirname "$video_path")
+      output_audio="$folder_path/${filename}_audio.$audio_ext"
+      count=1
+      while [ -f "$output_audio" ]; do
+        output_audio="$folder_path/${filename}_audio($count).$audio_ext"
+        count=$((count + 1))
+      done
+      ;;
+    *)
+      echo "support only: mp4,mov,avi,mkv,flv,webm"
+      break
+      ;;
+  esac
+done
+```
+
+```bash
+cntrl + x + y + enter
 ```
 ```bash
-pip install requests
+chmod +x FILENAME.sh
 ```
 ```bash
-termux-setup-storage
+./FILENAME.sh
 ```
 
 3. **create new file:**
