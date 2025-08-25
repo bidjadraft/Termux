@@ -148,8 +148,8 @@ while true; do
 done
 ```
 ---
-3. save the file by click:
- `Ctrl` + `X` + `Y` + `Enter`
+3. save the file by click:  `Ctrl` + `X` + `Y` + `Enter`
+
 ---
 4. Giving file permissions
 ```bash
