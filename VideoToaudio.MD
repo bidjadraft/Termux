@@ -6,7 +6,7 @@
 > Click image to watch video.
 
 # Overview
-This script is written in Python and automates the process of converting audio or video files into written text using the Google Gemini API. It is designed to run in the Termux environment or any similar Linux system, handling large files efficiently by splitting and compressing them when needed, then uploading in parts and combining the resulting texts into a single file.
+The script's main function is to extract the audio track from video files using ffmpeg, automating the process with user prompts and progress indication.
 
 # Features
 
