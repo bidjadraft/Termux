@@ -21,9 +21,9 @@ The script's main function is to extract the audio track from video files using 
 
 # Screenshots 
 
-![Screenshot 1](https://i.imgur.com/b5OQZL5.jpeg)
+![Screenshot 1](https://i.imgur.com/79O1NYn.png)
 
-![Screenshot 2](https://i.imgur.com/DixjIsR.jpeg)
+![Screenshot 2](https://i.imgur.com/tTXgBa6.png)
 
 ---
 # Requirements
