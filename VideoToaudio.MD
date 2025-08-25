@@ -10,8 +10,8 @@ The script's main function is to extract the audio track from video files using 
 
 # Features
 
-- Supports common audio formats:  
-  `WAV, MP3, M4A, FLAC, OPUS, OGG`
+- Supports common Video formats:  
+  `MP4, MOV, MKV`
 
 - Supports popular video formats:  
   `MP4, MOV, MKV, AVI, FLV, WM`
