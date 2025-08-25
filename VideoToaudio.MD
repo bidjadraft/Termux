@@ -166,9 +166,10 @@ chmod +x FILENAME.sh
 # How to Use This Script
 1. Upon running the script, you will be prompted to download the `FFMPEG` tool, choose `Y` and wait for the installation to complete.
 2. Next, you will be prompted to enter the video file `PATH`.
-3. After entering the correct path, the script will begin the audio
+3. Use a file manager that supports copying paths, such as Mixplorer or Material Files
+4. After entering the correct path, the script will begin the audio
 extraction process at a fast speed.
-4. The extracted file will be `SAVED` in the same folder as the video with a different name.
+5. The extracted file will be `SAVED` in the same folder as the video with a different name.
 
 ---
 
