@@ -1,7 +1,7 @@
 
 # Extract Audio from Video with Termux and FFMPEG
 
-[![watch video on youtube](https://img.youtube.com/vi/OLT1c8Rj6HY/hqdefault.jpg)](https://www.youtube.com/watch?v=OLT1c8Rj6HY)
+[![watch video on youtube](https://img.youtube.com/vi/sl7j-tCzqa8/hqdefault.jpg)](https://youtube.com/shorts/sl7j-tCzqa8)
 > **Note**  
 > Click image to watch video.
 
